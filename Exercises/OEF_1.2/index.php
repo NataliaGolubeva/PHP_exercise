@@ -29,7 +29,7 @@
             echo "<h3>$name</h3>";
             echo "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>";
             echo "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>";
-        echo "<img width='auto' height='180px' src='img/$image.jpg'> <br>";
+        echo "<img width='auto' height='180px' src='img/$image.jpg' alt='city'> <br>";
         echo "</div>";
         }}
         echo columns($images, $names)
