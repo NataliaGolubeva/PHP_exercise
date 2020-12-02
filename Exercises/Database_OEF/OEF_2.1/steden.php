@@ -47,7 +47,7 @@ if ($result->num_rows > 0)
         echo "<br>";
         $link_image = "img/" . $row['img_filename'];
         print '<img class="img-fluid" width=75% src="' . $link_image . '"><br>';
-        echo '<a href="OEF_2.1.php">Terug naar overzicht</a>';
+        echo '<a href="OEF_2.2.php">Terug naar overzicht</a>';
 
     }
 }
