@@ -12,3 +12,12 @@ function PrintJumbo(){
     return $jumbo;
 
 }
+
+function PrintCol(){
+    $col_4 = file_get_contents("./templates/col_4.html");
+    return $col_4;
+}
+function PrintColLg(){
+    $col_9 = file_get_contents("./templates/col_9.html");
+    return $col_9;
+}
