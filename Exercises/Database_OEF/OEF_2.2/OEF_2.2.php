@@ -25,7 +25,7 @@ if ($result->num_rows > 0)
         echo '<h3>' . $row["img_title"] . '</h3>';
         echo '<p>' . $row["img_width"] . " x " . $row["img_height"] . "pixels" . '</p>';
         echo '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>';
-        print '<img class="img-fluid" src="' . $link_image . '">';
+        print '<img class="img-fluid" width=100% src="' . $link_image . '">';
         $id = $row['img_id'];
         echo ('<a href="steden.php?img_id=' . $id . '">'.  "Meer info" . '</a>');
 
