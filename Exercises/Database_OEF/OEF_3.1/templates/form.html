@@ -1,0 +1,52 @@
+<div class= "container">
+    <div class="row">
+        <div class ="col-sm-6 col-sm-offset-3">
+    <form id="mainform" name="mainform" action="../library/save.php" method="post">
+    <div class="form-group row">
+        <label for="img_id" class="col-sm-2 col-form-label">Id</label>
+        <div class="col-sm-8">
+            <input type="text" readonly class="form-control-plaintext" id="img_id" name="img_id" value="@img_id@">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="title" class="col-sm-2 col-form-label">Titel</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="title" name="img_title" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Filename" class="col-sm-2 col-form-label">Filename</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="Filename" name="img_filename" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="width" class="col-sm-2 col-form-label">Width</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="width" name="img_width">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="height" class="col-sm-2 col-form-label">Height</label>
+        <div class="col-sm-10">
+            <input type="text"  class="form-control" id="height" name="img_height">
+        </div>
+    </div>
+        <div>
+    <button type="submit" class="btn btn-primary ">Save</button>
+        </div>
+
+    </form>
+        </div>
+        <div class="row text-center">
+            <img alt=@img_title@ class="img-fluid" style="width: 50%; border-radius: 15px; margin-top: 10px;" src="img/@img_filename@">
+        </div>
+        <div class ="col-sm-6 col-sm-offset-3">
+
+        <p> <a href=overzicht_steden.php>Terug naar overzicht</a></p>
+        </div>
+    </div>
+</div>
+
+
+
