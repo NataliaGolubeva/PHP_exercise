@@ -52,7 +52,7 @@ if ($result->num_rows > 0)
         echo '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>';
         print '<img class="img-fluid" src="' . $link_image . '">';
         $id = $row['img_id'];
-        echo ('<a href="steden.php?img_id=' . $id . '">'.  "Meer info" . '</a>');
+        echo ('<a href="stad_form.php?img_id=' . $id . '">'.  "Meer info" . '</a>');
 
         echo '</div>';
             } }
