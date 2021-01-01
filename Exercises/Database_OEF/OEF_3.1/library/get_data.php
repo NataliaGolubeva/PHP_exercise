@@ -1,10 +1,11 @@
 <?php
 require_once "connection.php";
 
-function getData ($query)  {
+function getData ($sql)  {
     //define and execute query
     global $conn;
-    $result = $conn->query( $query );
+
+    $result = $conn->query( $sql );
 
     //show result (if there is any)
     if ( $result->rowCount() > 0 )
@@ -17,4 +18,13 @@ function getData ($query)  {
         return [];
     }
 
+}
+function ExecuteSQL( $sql )
+{
+    global $conn;
+
+    //define and execute query
+    $result = $conn->query( $sql);
+
+    return $result;
 }

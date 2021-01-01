@@ -1,14 +1,16 @@
 <?php
 
 function PrintHead (){
-    $head= file_get_contents("./templates/head.html");
+    $head = file_get_contents("./templates/head.html");
     return $head;
 }
 
 PrintHead();
 
-function PrintJumbo(){
+function PrintJumbo($title = "", $subtitle = "" ){
     $jumbo = file_get_contents("./templates/jumbo.html");
+    $jumbo = str_replace( "@jumbo_title@", $title, $jumbo );
+    $jumbo = str_replace( "@jumbo_subtitle@", $subtitle, $jumbo );
     return $jumbo;
 
 }

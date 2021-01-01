@@ -3,10 +3,13 @@
 require_once "./library/get_data.php";
 require_once "./library/html_components.php";
 require_once "./library/connection.php";
+//require_once "./library/save.php";
+
 
 //Define and execute query
 echo PrintHead();
-echo PrintJumbo2();
+echo PrintJumbo($title = "Bewerk afbeelding", $subtitle = "");
+
 ?>
 
 <div class="container">

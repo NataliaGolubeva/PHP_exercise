@@ -5,7 +5,8 @@ require_once "./library/html_components.php";
 
 //Define and execute query
 echo PrintHead();
-echo PrintJumbo();?>
+echo PrintJumbo( $title = "Leuke plekken in Europa" ,
+    $subtitle = "Tips voor citytrips voor vrolijke vakantiegangers!" );?>
 
 <div class="container">
     <div class="row">
