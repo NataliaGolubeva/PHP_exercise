@@ -1,4 +1,6 @@
 <?php
+error_reporting( E_ALL );
+ini_set( 'display_errors', 1 );
 require_once "autoload.php";
 
 SaveFormData();
@@ -54,7 +56,7 @@ function SaveFormData()
         foreach ( $_POST as $field => $value )
         {
             //skip non-data fields
-            if ( in_array( $field, [ 'table', 'pkey', 'afterinsert', 'afterupdate', 'csrf' ] ) ) continue;
+            if ( in_array( $field, [ 'table', 'pkey', 'afterinsert', 'afterupdate', 'csrf', 'usr_password_check' ] ) ) continue;
 
             //handle primary key field
             if ( $field == $pkey )
@@ -79,13 +81,13 @@ function SaveFormData()
         //output if not redirected
         print $sql ;
         print "<br>";
-        print $result->rowCount() . " records affected";
+        //print $result->rowCount() . " records affected";
 
         $_SESSION["message"]="MESSAGE OF SUCCESS";
 
         //redirect after insert or update
-        if ( $insert AND $_POST["afterinsert"] > "" ) header("Location: ../" . $_POST["afterinsert"] );
-        if ( $update AND $_POST["afterupdate"] > "" ) header("Location: ../" . $_POST["afterupdate"] );
+       // if ( $insert AND $_POST["afterinsert"] > "" ) header("Location: ../" . $_POST["afterinsert"] );
+        //if ( $update AND $_POST["afterupdate"] > "" ) header("Location: ../" . $_POST["afterupdate"] );
     }
 }
 

@@ -34,8 +34,7 @@ echo PrintNavbar();
         $output = RemoveEmptyErrorTags( $output, $data );
 
         print $output;
-        $sPassword =  password_hash("password", PASSWORD_DEFAULT );
-        echo $sPassword;
+
 
         //get template
 

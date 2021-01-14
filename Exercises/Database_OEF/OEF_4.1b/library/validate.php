@@ -104,11 +104,12 @@ function GetFieldType( $definition )
     return [ $type, $length, $precision ];
 }
 function ValidateUsrPassword(){
-    if (strlen($_POST["usr_password"]) < 8){
-        $msg = "Minimum characters is 8";
+    if (($_POST["usr_password"] !== $_POST["usr_password_check"] )){
+        $msg = "Please repeat your password";
         $_SESSION['errors'][ "usr_password_error" ] = $msg;
     }
 }
+
 function RequiredVoornaam(){
     if (strlen($_POST["usr_voornaam"]) < 1){
         $msg = "The field is required";
