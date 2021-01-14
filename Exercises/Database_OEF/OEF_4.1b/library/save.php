@@ -17,7 +17,7 @@ function SaveFormData()
         $_POST = ConvertSpecialChars($_POST);
 
 
-        $stable = $table = $pkey = $update = $insert = $where = $str_keys_values = "";
+        $table = $pkey = $update = $insert = $where = $str_keys_values = "";
 
         //get important metadata
         if ( ! key_exists("table", $_POST)) die("Missing table");
@@ -29,15 +29,25 @@ function SaveFormData()
         //validation
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
         CompareWithDatabase( $table, $pkey );
+        RequiredVoornaam();
+        RequiredNaam();
+        ValidateUsrEmail();
+        ValidateUsrPassword();
 
         //terugkeren naar afzender als er een fout is
         if ( count($_SESSION['errors']) > 0 ) { header( "Location: " . $sending_form_uri ); exit(); }
+        //hash password
+        if(key_exists('usr_password', $_POST)){
+            $_POST['usr_password'] = password_hash($_POST['usr_password'], PASSWORD_DEFAULT);
+        }
+
         //insert or update?
         if ( $_POST["$pkey"] > 0 ) $update = true;
         else $insert = true;
 
         if ( $update ) $sql = "UPDATE $table SET ";
         if ( $insert ) $sql = "INSERT INTO $table SET ";
+
         //make key-value string part of SQL statement
         $keys_values = [];
 
@@ -71,8 +81,10 @@ function SaveFormData()
         print "<br>";
         print $result->rowCount() . " records affected";
 
+        $_SESSION["message"]="MESSAGE OF SUCCESS";
+
         //redirect after insert or update
-        if ( $insert AND $_POST["afterinsert"] > "" ) header("Location: ../overzicht_steden.php" . $_POST["afterinsert"] );
+        if ( $insert AND $_POST["afterinsert"] > "" ) header("Location: ../" . $_POST["afterinsert"] );
         if ( $update AND $_POST["afterupdate"] > "" ) header("Location: ../" . $_POST["afterupdate"] );
     }
 }

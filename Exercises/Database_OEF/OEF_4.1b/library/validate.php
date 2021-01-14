@@ -103,3 +103,33 @@ function GetFieldType( $definition )
 
     return [ $type, $length, $precision ];
 }
+function ValidateUsrPassword(){
+    if (strlen($_POST["usr_password"]) < 8){
+        $msg = "Minimum characters is 8";
+        $_SESSION['errors'][ "usr_password_error" ] = $msg;
+    }
+}
+function RequiredVoornaam(){
+    if (strlen($_POST["usr_voornaam"]) < 1){
+        $msg = "The field is required";
+        $_SESSION['errors'][ "usr_voornaam_error" ] = $msg;
+    }
+}
+function RequiredNaam(){
+    if (strlen($_POST["usr_naam"]) < 1){
+        $msg = "The field is required";
+        $_SESSION['errors'][ "usr_naam_error" ] = $msg;
+    }
+}
+
+function ValidateUsrEmail()
+{
+// Remove all illegal characters from email
+    $email = filter_var($_POST['usr_email'], FILTER_SANITIZE_EMAIL);
+
+// Validate e-mail
+    if ( !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $msg = "Please insert valid email address";
+        $_SESSION['errors'][ "usr_email_error" ] = $msg;
+    }
+}
