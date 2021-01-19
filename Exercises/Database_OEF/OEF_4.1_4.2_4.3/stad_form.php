@@ -16,7 +16,7 @@ echo PrintNavbar();
     <div class="row">
 
         <?php
-        if ( ! is_numeric( $_GET['img_id']) ) die("Ongeldig argument " . $_GET['img_id'] . " opgegeven");
+       if ( ! is_numeric( $_GET['img_id']) ) die("Ongeldig argument " . $_GET['img_id'] . " opgegeven");
 
         //get data
         $data = GetData( "select * from images where img_id=" . $_GET['img_id'] );
@@ -25,8 +25,8 @@ echo PrintNavbar();
         //add extra elements
         $extra_elements['csrf_token'] = GenerateCSRF( "stad_form.php"  );
         $extra_elements['select_land'] = MakeSelect( $fkey = 'img_lan_id',
-            $value = $row['img_lan_id'] ,
-            $sql = "select lan_id, lan_naam from landen" );
+                                                    $value = $row['img_lan_id'] ,
+                                                    $sql = "select lan_id, lan_naam from landen" );
         $output = file_get_contents("./templates/form.html");
 
         //merge
