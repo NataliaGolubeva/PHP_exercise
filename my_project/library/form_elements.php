@@ -18,18 +18,5 @@ function MakeSelect( $fkey, $value, $sql )
     $select .= "</select>";
 
     return $select;
-}
-function Select ( $sql) {
 
-    $data = GetData($sql);
-
-    foreach ( $data as $row )
-    {
-
-
-        $select .= "<option $selected value=" . $row[0] . ">" . $row[1] . "</option>";
-    }
-    $select .= "</select>";
-
-    return $select;
 }

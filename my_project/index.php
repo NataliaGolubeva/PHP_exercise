@@ -1,4 +1,5 @@
 <?php
+
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 require_once "./library/autoload.php";
@@ -18,9 +19,7 @@ if ( isset($msgs['success']) ) {
 if ( isset($msgs['danger']) ) {
     printAlertDanger($msgs['danger']);
 }
-if (isset($_POST["search"])){
-    Search();
-}
+
 $extra_elements['csrf_token'] = GenerateCSRF( "index.php"  );
 /// Sign In
 $data = [ 0 => [ "usr_name" => "", "usr_last_name" => "","usr_phone_nr" => "", "usr_email" => "", "usr_password" => "" ]];

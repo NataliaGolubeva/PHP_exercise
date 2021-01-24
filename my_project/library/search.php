@@ -14,7 +14,7 @@ function Search()
 
     foreach ($list as $a) {
 
-        $sql = "SELECT * FROM specialty WHERE spec_name LIKE '%$a%' ";
+        $sql = "SELECT * FROM specialty  WHERE spec_name LIKE '%$a%' ";
         $data = getData($sql);
         //$data -> bindValue('%$a%', $_POST["search"], PDO::PARAM_STR, 50) ;
 
@@ -23,9 +23,12 @@ function Search()
             $resultList[$row['spec_name']] = $row;
         }
         foreach($resultList as $row){
-           //echo '<div class="result" style="color: white">' .$row['spec_name'] . '</div>';
-           //echo '<div class="result" style="color: white">' .$row['spec_id'] . '</div>';
-
+           echo '<div class="result" style="color: white">' .$row['spec_name'] . '</div>';
+          // echo '<div class="result" style="color: white">' .$row['usr_name'] . ' ' .$row['usr_last_name'] . '</div>';
+           // echo '<div class="result" style="color: white">' .$row['usr_postcode'] . '</div>';
+           // echo '<div class="result" style="color: white">' .$row['usr_street'] . ' ' .$row['usr_h_nr'] . '</div>';
+           // echo '<div class="result" style="color: white">' .$row['usr_city'] . ' ' .$row['usr_country'] . '</div>';
+           // echo '<div class="result" style="color: white">' .$row['usr_phone_nr'] . '</div>';
         }
     }
 }

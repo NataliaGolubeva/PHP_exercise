@@ -1,5 +1,7 @@
 <?php
 session_start();
+//print json_encode($_SERVER); exit;
+$request_uri = explode("/", $_SERVER['REQUEST_URI']);
 
 require_once "connection_data.php";
 require_once "pdo.php";
@@ -8,32 +10,31 @@ require_once "form_elements.php";
 require_once "sanitize.php";
 require_once "validate.php";
 require_once "security.php";
+require_once "search.php";
 
+//initialize $errors array
 $errors = [];
-$msgs = [];
-$old_post = [];
-$mail = [];
 
 if ( key_exists( 'errors', $_SESSION ) AND is_array( $_SESSION['errors']) )
 {
     $errors = $_SESSION['errors'];
-    $_SESSION['errors'] = null;
-}
-if ( key_exists( 'old_post', $_SESSION ) AND is_array( $_SESSION['old_post']) )
-{
-    $old_post = $_SESSION['old_post'];
-    $_SESSION['old_post'] = null;
+    $_SESSION['errors'] = [];
 }
 
-if ( key_exists( 'msgs', $_SESSION ) && is_array( $_SESSION['msgs']) )
+//initialize $msgs array
+$msgs = [];
+
+if ( key_exists( 'msgs', $_SESSION ) AND is_array( $_SESSION['msgs']) )
 {
     $msgs = $_SESSION['msgs'];
-    $_SESSION['msgs'] = null;
-
+    $_SESSION['msgs'] = [];
 }
 
-if ( key_exists( 'mail', $_SESSION )) //AND is_array( $_SESSION['msgs']) )
+//initialize $old_post
+$old_post = [];
+
+if ( key_exists( 'OLD_POST', $_SESSION ) AND is_array( $_SESSION['OLD_POST']) )
 {
-    $msgs = $_SESSION['mail'];
-    $_SESSION['mail'] = null;
+    $old_post = $_SESSION['OLD_POST'];
+    $_SESSION['OLD_POST'] = [];
 }
