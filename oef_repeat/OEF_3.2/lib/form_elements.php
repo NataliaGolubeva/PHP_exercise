@@ -1,4 +1,5 @@
 <?php
+
 require_once "autoload.php";
 
 function MakeSelect( $fkey, $value, $sql )
@@ -15,11 +16,8 @@ function MakeSelect( $fkey, $value, $sql )
 
         $select .= "<option $selected value=" . $row[0] . ">" . $row[1] . "</option>";
     }
+
     $select .= "</select>";
 
     return $select;
-}
-function MakeCheckbox( )
-{
-
 }

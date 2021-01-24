@@ -1,0 +1,58 @@
+<div class="form-popup" id="myFormSignIn">
+    <form id="mainform" name="mainform" action="library/save.php" method="post" class="form-container">
+        <input type="hidden" id="table" name="table" value="user">
+        <input type="hidden" id="pkey" name="pkey" value="usr_id">
+        <input type="hidden" id="afterinsert" name="afterinsert" value="signin.php">
+        <!-- end meta info -->
+        <!-- security -->
+        <input type="hidden" name="csrf" value="@csrf_token@">
+        <h1>Sign In</h1>
+        <div class="input">
+            <input type="text" name="usr_name" id="usr_name" required value="@usr_name@"/>
+            @usr_name_error@
+            <label for="usr_name" class="label-name">
+                <span class="content-name">Name</span>
+            </label>
+        </div>
+        <div class="input">
+            <input type="text" name="usr_last_name" id="usr_last_name" required value="@usr_last_name@"/>
+            @usr_last_name_error@
+            <label for="usr_last_name" class="label-name">
+                <span class="content-name">Last name</span>
+            </label>
+        </div>
+        <div class="input">
+            <input type="text" name="usr_phone_nr" id="usr_phone_nr" required value="@usr_phone_nr@" />
+            <label for="usr_phone_nr" class="label-name">
+                <span class="content-name">Phone number</span>
+            </label>
+        </div>
+        <div class="input">
+            <input type="text" name="usr_email" id="usr_email" required value="@usr_email@"/>
+            @usr_email_error@
+            <label for="usr_email" class="label-name">
+                <span class="content-name">Email</span>
+            </label>
+        </div>
+        <div class="input">
+            <input type="password" name="usr_password" id="usr_password" required value="@usr_password@"/>
+            <label for="usr_password" class="label-name">
+                <span class="content-name">Password</span>
+                @usr_password_error@
+            </label>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="btn">Sign in</button>
+        </div>
+        <div class="cancel" onclick="closeFormSign()">
+            <button>
+                <svg class="icon icon-cross">
+                    <use
+                            xlink:href="./dist/icomoon/symbol-defs.svg#icon-cross"
+                    ></use>
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>
