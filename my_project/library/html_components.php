@@ -8,6 +8,12 @@ function PrintNavigation(){
     $navigation = file_get_contents("./templates/navigation.html");
     return $navigation;
 }
+function PrintNavigation2(){
+    $navigation2 = file_get_contents("./templates/navigation2.html");
+    return $navigation2;
+}
+
+
 function PrintHeader(){
     $header = file_get_contents("./templates/header.html");
     return $header;
@@ -17,19 +23,11 @@ function PrintSection(){
     $section = file_get_contents("./templates/section.html");
         return $section;
 }
+function PrintSectionSearch(){
+    $section = file_get_contents("./templates/section_search.html");
+    return $section;
+}
 
-function PrintLogIn(){
-    $login = file_get_contents("./templates/login.html");
-    return $login;
-}
-function PrintSignIn(){
-    $signIn = file_get_contents("./templates/myFormSignIn.html");
-    return $signIn;
-}
-function PrintRegister(){
-    $register = file_get_contents("./templates/register.html");
-    return $register;
-}
 
 
 function printAlertSuccess($msgs) {

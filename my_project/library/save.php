@@ -49,9 +49,9 @@ function SaveFormData()
         }
 
         //hash password
-        if(key_exists('usr_password', $_POST)){
+        /*if(key_exists('usr_password', $_POST)){
             $_POST['usr_password'] = password_hash($_POST['usr_password'], PASSWORD_DEFAULT);
-        }
+        }*/
 
         $sql = "INSERT INTO $table SET ";
         //make key-value string part of SQL statement
@@ -67,6 +67,10 @@ function SaveFormData()
             {
                 if ( $update ) $where = " WHERE $pkey = $value ";
                 continue;
+            }
+            if ( $field == "usr_password" ) //encrypt usr_password
+            {
+                $value = password_hash( $value, PASSWORD_BCRYPT );
             }
 
 

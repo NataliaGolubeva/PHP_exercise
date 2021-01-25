@@ -55,9 +55,16 @@ print $register;
 
 /// LOGIN
 
+if ( isset($_GET['logout']) AND $_GET['logout'] == "true" )
+{
+    print '<div class="msgs">You are logout.</div>';
+}
+//get data
 $data = [ 0 => [ "usr_email" => "", "usr_password" => "" ]];
 
-$login = file_get_contents("./templates/login.html");
+//get template
+$login = file_get_contents("templates/login.html");
+//merge
 $login = MergeViewWithData( $login, $data );
 $login = MergeViewWithExtraElements( $login, $extra_elements );
 

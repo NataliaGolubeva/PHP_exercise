@@ -1,3 +1,4 @@
+@import url("../../../dist/icomoon/style.css");
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
 * {
@@ -106,7 +107,6 @@ menu,
 nav,
 section {
   display: block;
-
 }
 
 body {
@@ -136,6 +136,17 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: "Montserrat", sans-serif;
+  src: url(./fonts/Montserrat/Montserrat-Light.ttf);
+}
+@font-face {
+  font-family: "Raleway", sans-serif;
+  src: url(./fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+  src: url(./fonts/Raleway/Raleway-SemiBold.ttf) format("truetype");
+  src: url(./fonts/Raleway/Raleway-ExtraBold.ttf) format("truetype");
+  src: url(./fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+}
 * {
   box-sizing: border-box;
 }
@@ -151,6 +162,9 @@ header {
   height: 100vh;
   position: relative;
   overflow: hidden;
+}
+header #main {
+  height: 1400px;
 }
 header .big_title {
   position: absolute;
@@ -205,14 +219,12 @@ header nav .container {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  align-items: center;
 }
 header nav .container .wrapper .search {
   position: relative;
 }
 header nav .container .wrapper .search a .icon-search {
   position: absolute;
-  top: 0;
   right: 17px;
   color: #fff;
   font-size: 18px;
@@ -276,7 +288,6 @@ header nav .container .sign-links ul li a {
   transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);
   cursor: pointer;
   user-select: none;
-  cursor: pointer;
 }
 header nav .container .sign-links ul li a:before, header nav .container .sign-links ul li a:after {
   content: "";
@@ -409,7 +420,6 @@ header nav .container .sign-links ul li a:hover:after {
 }
 
 section {
-
   width: 100%;
   background-color: black;
   color: #cfcfd3;
@@ -467,6 +477,136 @@ section img {
 
 .hamburger {
   display: none;
+}
+.hamburger .dropdown {
+  margin-left: auto;
+  position: relative;
+  display: inline-block;
+}
+.hamburger .dropdown:hover .dropdown-content {
+  display: block;
+}
+.hamburger .dropdown:hover .dropbtn {
+  background: rgba(255, 255, 255, 0.1);
+}
+.hamburger .dropdown .icon-align-lefts {
+  font-size: 55px;
+  padding-left: 35px;
+}
+.hamburger .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  right: -2px;
+  background-color: #f1f1f1;
+  min-width: 135px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  outline: none;
+}
+.hamburger .dropdown .dropdown-content a {
+  color: #114c50;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.hamburger .dropdown .dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown {
+  margin-left: auto;
+  position: relative;
+  display: inline-block;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background: rgba(255, 255, 255, 0.1);
+}
+.dropdown .dropbtn {
+  border: 1px solid #114c50;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  color: #fff;
+  outline: none;
+  padding: 10px;
+}
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 135px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  outline: none;
+}
+.dropdown .dropdown-content a {
+  color: #114c50;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown .dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.container {
+  display: flex;
+  margin-top: 200px;
+  color: #fff;
+}
+.container .date {
+  float: right;
+  font-size: 25px;
+  margin-left: 70px;
+  text-align: center;
+}
+.container .list {
+  margin-left: 50px;
+  width: 50%;
+}
+.container .list .doctor .fname {
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.container .list .doctor .specialty {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.container .list .doctor .address {
+  font-size: 16px;
+}
+.container .list .doctor .booking {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #114c50;
+  border-radius: 20px;
+  background: rgba(12, 44, 46, 0.8);
+  font-size: 10px;
+  color: #fff;
+  outline: none;
+}
+.container .list .doctor .booking:hover {
+  background: #0c2c2e;
+}
+
+.errors,
+.message {
+  position: absolute;
+  z-index: 60;
+  color: white;
+  font-size: 30px;
+  background-color: green;
+}
+
+.errors {
+  background-color: red;
 }
 
 @media screen and (max-width: 1100px) {

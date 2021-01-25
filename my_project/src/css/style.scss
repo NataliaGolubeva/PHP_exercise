@@ -16,6 +16,9 @@ header {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  #main {
+    height: 1400px;
+  }
   .big_title {
     position: absolute;
     z-index: 30;
@@ -346,6 +349,142 @@ section {
 }
 .hamburger {
   display: none;
+  .dropdown {
+    margin-left: auto;
+    position: relative;
+    display: inline-block;
+    &:hover {
+      .dropdown-content {
+        display: block;
+      }
+      .dropbtn {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+    .icon-align-lefts {
+      font-size: 55px;
+      padding-left: 35px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: -2px;
+      background-color: #f1f1f1;
+      min-width: 135px;
+
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      outline: none;
+      a {
+        color: $bg_gradient;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
+}
+.dropdown {
+  margin-left: auto;
+  position: relative;
+  display: inline-block;
+  &:hover {
+    .dropdown-content {
+      display: block;
+    }
+    .dropbtn {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .dropbtn {
+    border: 1px solid $bg_gradient;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    color: #fff;
+    outline: none;
+    padding: 10px;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 135px;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    outline: none;
+    a {
+      color: $bg_gradient;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+.container {
+  display: flex;
+  margin-top: 200px;
+  color: #fff;
+  .date {
+    float: right;
+    font-size: 25px;
+    margin-left: 70px;
+    text-align: center;
+  }
+  .list {
+    margin-left: 50px;
+
+    width: 50%;
+    //position: absolute;
+
+    .doctor {
+      .fname {
+        font-size: 25px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+      }
+      .specialty {
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .address {
+        font-size: 16px;
+      }
+      .booking {
+        margin-top: 15px;
+        padding: 10px;
+        border: 1px solid $bg_gradient;
+        border-radius: 20px;
+        background: rgb(12, 44, 46, 0.8);
+        font-size: 10px;
+        color: #fff;
+        outline: none;
+        &:hover {
+          background: rgb(12, 44, 46);
+        }
+      }
+    }
+  }
+}
+.errors,
+.message {
+  position: absolute;
+  z-index: 60;
+  color: white;
+  font-size: 30px;
+  background-color: green;
+}
+.errors {
+  background-color: red;
 }
 
 @media screen and (max-width: 1100px) {

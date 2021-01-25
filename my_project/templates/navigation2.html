@@ -1,85 +1,50 @@
-<header>
-    <nav>
-        <div class="container">
-            <a href="index.html" class="home">
-                <h3 class="logo">Easy<span>Search</span></h3>
+<header id="main">
+  <nav>
+    <div class="container">
+      <a href="index.php" class="home">
+        <h3 class="logo">Easy<span>Search</span></h3>
+      </a>
+
+      <div class="wrapper">
+        <div class="search">
+          <!--  <input type="text" placeholder="search for doctor specialty" /> -->
+          <!-- @select_speciality@-->
+          <form action="index.php" class="form-search" method="post">
+            <input
+              type="hidden"
+              id="search"
+              name="search"
+              value="search_results.php"
+            />
+            <input
+              id="search-collection"
+              class="search-collection"
+              type="text"
+              name="search"
+              placeholder="search for doctor specialty"
+            />
+
+            <a>
+              <svg class="icon icon-search">
+                <use
+                  xlink:href="../dist/icomoon/symbol-defs.svg#icon-search"
+                ></use>
+              </svg>
             </a>
-
-            <div class="wrapper">
-                <div class="search">
-                    <!--  <input type="text" placeholder="search for doctor specialty" /> -->
-                    <!-- @select_speciality@-->
-                    <form action="index.php" class="form-search" method="post">
-                        <input
-                                type="hidden"
-                                id="search"
-                                name="search"
-                                value="search_results.php"
-                        />
-
-                        <input
-                                id="search-collection"
-                                class="search-collection"
-                                type="text"
-                                name="search"
-                                placeholder="search for doctor specialty"
-                        />
-
-                        <a>
-                            <svg class="icon icon-search">
-                                <use
-                                        xlink:href="../dist/icomoon/symbol-defs.svg#icon-search"
-                                ></use>
-                            </svg>
-                        </a>
-                    </form>
-                </div>
-            </div>
-
-            <div class="sign-links">
-                <ul>
-                    <li>
-                        <a class="left open-button" onclick="openFormReg()" href="#"
-                        >Register</a
-                        >
-                    </li>
-
-                    <li>
-                        <a class="left open-button" href="../signin.php">Sign in</a>
-                    </li>
-                    <li>
-                        <a class="left open-button" onclick="openForm()" href="#">Log in</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="hamburger">
-                <a>
-                    <svg class="icon icon-align-left">
-                        <use
-                                xlink:href="./dist/icomoon/symbol-defs.svg#icon-align-left"
-                        ></use>
-                    </svg>
-                </a>
-            </div>
+          </form>
         </div>
-    </nav>
+      </div>
 
-    <img
-            src="../dist/images/drop1.png"
-            class="drop_1 translate"
-            data-speed="1.1"
-            alt=""
-    />
-    <img
-            src="../dist/images/drop2.png"
-            class="drop_2 translate"
-            data-speed="1.4"
-            alt=""
-    />
-    <img
-            src="../dist/images/water.png"
-            class="water translate"
-            data-speed="-0.1"
-            alt=""
-    />
-</header>
+      <div class="dropdown">
+        <button class="dropbtn">@usr_name@</button>
+        <div class="dropdown-content">
+          <a href="profile.php">My Profile</a>
+          <a href="settings.php">My Settings</a>
+          <a href="logout.php">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+

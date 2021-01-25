@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find your doctor</title>
+    <link rel="stylesheet" href="../dist/style.css" />
+    <link rel="stylesheet" href="../dist/icomoon/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="container">
+          <a href="./index.html" class="home">
+            <h3 class="logo">Easy<span>Search</span></h3>
+          </a>
+
+          <div class="wrapper">
+            <div class="search">
+              <input type="text" placeholder="search for doctor specialty" />
+              <a>
+                <svg class="icon icon-search">
+                  <use
+                    xlink:href="./dist/icomoon/symbol-defs.svg#icon-search"
+                  ></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">@usr_name@</button>
+            <div class="dropdown-content">
+              <a href="profile.php">My Profile</a>
+              <a href="settings.php">My Settings</a>
+              <a href="logout.php">Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <section class="list">
+          <div class="doctor">
+            <div class="fname">doctor</div>
+            <div class="specialty">test</div>
+            <div class="address">test</div>
+            <button type="submit" class="booking">Book an appointment</button>
+          </div>
+        </section>
+        <section class="sec_img">
+          <img src="../dist/images/stream.jpg" alt="" />
+        </section>
+      </div>
+    </header>
+    <script src="../src/js/index.js"></script>
+    <script src="../dist/icomoon/svgxuse.js"></script>
+  </body>
+</html>
