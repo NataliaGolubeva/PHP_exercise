@@ -9,6 +9,16 @@ echo PrintHead();
 echo PrintJumbo( $title = "Leuke plekken in Europa" ,
     $subtitle = "Tips voor citytrips voor vrolijke vakantiegangers!" );
 echo PrintNavbar();
+foreach ( $msgs as $msg ){
+    if ( isset($msgs['success']) ) {
+        printAlertSuccess($msgs['success']);
+    }
+
+    if ( isset($msgs['danger']) ) {
+        printAlertDanger($msgs['danger']);
+    }
+}
+
 
 ?>
 
@@ -16,6 +26,10 @@ echo PrintNavbar();
     <div class="row">
 
 <?php
+foreach ( $msgs as $msg )
+{
+    print '<div class="msgs">' . $msg . '</div>';
+}
  // get data
 $rows = getData("select * from images");
 

@@ -1,11 +1,16 @@
 <?php
 
 function PrintHead (){
-    $head = file_get_contents("./templates/head_new.html");
+   if (file_exists("./templates/head2.html")){
+       $head = file_get_contents("./templates/head2.html");
+   }
+   else {
+       $head = file_get_contents("../templates/head2.html");
+
+   }
+
     return $head;
 }
-
-PrintHead();
 
 function PrintJumbo($title = "", $subtitle = "" ){
     $jumbo = file_get_contents("./templates/jumbo.html");
@@ -18,7 +23,18 @@ function PrintNavbar(){
     $navbar = file_get_contents("./templates/navbar.html");
         return $navbar;
 }
+function printAlertSuccess($msgs) {
+    $alert = file_get_contents("./templates/alert-success.html");
+    $alert = str_replace("%msgs%", "$msgs", $alert);
+    print $alert;
+}
 
+function printAlertDanger($msgs)
+{
+    $alert = file_get_contents("./templates/alert-danger.html");
+    $alert = str_replace("%msgs%", "$msgs", $alert);
+    print $alert;
+}
 function MergeViewWithData( $template, $data )
 {
     $returnvalue = "";

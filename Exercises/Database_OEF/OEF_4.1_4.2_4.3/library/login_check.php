@@ -4,28 +4,23 @@ ini_set( 'display_errors', 1 );
 require_once "autoload.php";
 
 
-if (loginCheck() ){
-    $sql = "SELECT * FROM user WHERE usr_email = '" . $_POST['usr_email'] . "'";
-    $user = getData($sql);
-    $_SESSION['user'] = $user[0];
-    $_SESSION['msgs']['success'] =  $user[0]['usr_firstname'] . " you're logged in!";
-    header("Location: ./../overzicht_steden.php");
 
-} else {
-    unset($_SESSION['user']);
-    print "Try again";
+if ( LoginCheck() )
+{
+    print "INLOGGEN GELUKT";
+}
+else
+{
+    print "HELAAS!";
 }
 
 function LoginCheck(): bool
 {
-    if ( $_SERVER['REQUEST_METHOD'] == "POST" )
-    {
-        $usr_email = $_POST['usr_email'];
-        $usr_password = $_POST['usr_password'];
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         //controle CSRF token
-        if ( ! key_exists("csrf", $_POST)) die("Missing CSRF");
-        if ( ! hash_equals( $_POST['csrf'], $_SESSION['lastest_csrf'] ) ) die("Problem with CSRF");
+        if (!key_exists("csrf", $_POST)) die("Missing CSRF");
+        if (!hash_equals($_POST['csrf'], $_SESSION['lastest_csrf'])) die("Problem with CSRF");
 
         $_SESSION['lastest_csrf'] = "";
 
@@ -33,43 +28,43 @@ function LoginCheck(): bool
         $_POST = StripSpaces($_POST);
         $_POST = ConvertSpecialChars($_POST);
 
-// check usr_email in database
-        $sql = "SELECT * FROM user WHERE usr_email = '" . $usr_email . "'";
-        $user = getData($sql);
-        if (count($user) === 0) {
-            return false;
-        }
-
-        // check password
-        $password = $user[0]['usr_password'];
-        if (password_verify($usr_password, $password)) {
-            return true;
-        } else {
-            return false;
-        }
-
         //validation
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
-        CompareWithDatabase( $table, $pkey );
+//Validaties voor het loginformulier
+        if ( true )
+        {
+            if ( ! key_exists("usr_email", $_POST ) OR strlen($_POST['usr_email']) < 5 )
+            {
+                $_SESSION['errors']['usr_password'] = "Het wachtwoord is niet correct ingevuld";
+            }
+            if ( ! key_exists("usr_password", $_POST ) OR strlen($_POST['usr_password']) < 8 )
+            {
+                $_SESSION['errors']['usr_password'] = "Het wachtwoord is niet correct ingevuld";
+            }
+        }
+        //terugkeren naar afzender als er een fout is
+        if ( key_exists("errors" , $_SESSION ) AND count($_SESSION['errors']) > 0 )
+        {
+            $_SESSION['OLD_POST'] = $_POST;
+            header( "Location: " . $sending_form_uri ); exit();
+        }
 
+        //search user in database
+        $email = $_POST['usr_email'];
+        $ww = $_POST['usr_password'];
 
-        $str_keys_values = implode(" , ", $keys_values );
+        $sql = "SELECT * FROM user WHERE usr_email='$email' ";
+        $data = GetData($sql);
 
-        //extend SQL with key-values
-        $sql .= $str_keys_values;
+        if ( count($data) > 0 )
+        {
+            foreach ( $data as $row )
+            {
+                if ( password_verify( $ww, $row['usr_password'] ) ) return true;
+            }
+        }
 
-        //extend SQL with WHERE
-        $sql .= $where;
-        //run SQL
-        $result = ExecuteSQL( $sql );
-
-        //output if not redirected
-        print $sql ;
-        print "<br>";
-        //print $result->rowCount() . " records affected";
-
-        $_SESSION["message"]="MESSAGE OF SUCCESS";
-
+        return false;
     }
 }
 
