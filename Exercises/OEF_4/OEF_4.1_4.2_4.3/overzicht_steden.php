@@ -18,8 +18,16 @@ echo PrintNavbar();
 <?php
  // get data
 foreach ( $msgs as $msg )
-{
+{print '<div class="container">';
+    print' <div class="alert alert-success" role="alert">';
+
     print '<div class="msgs">' . $msg . '</div>';
+    print $_SESSION['user'];
+    print'<br>';
+    print'</div>';
+    print'</div>';
+
+
 }
 $rows = getData("select * from images");
 

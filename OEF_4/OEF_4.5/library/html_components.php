@@ -12,8 +12,6 @@ function PrintHead (){
     return $head;
 }
 
-PrintHead();
-
 function PrintJumbo($title = "", $subtitle = "" ){
     $jumbo = file_get_contents("./templates/jumbo.html");
     $jumbo = str_replace( "@jumbo_title@", $title, $jumbo );
@@ -23,13 +21,20 @@ function PrintJumbo($title = "", $subtitle = "" ){
 }
 function PrintNavbar(){
     $navbar = file_get_contents("./templates/navbar.html");
-    $username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
-    $navbar = str_replace("@username@", $username, $navbar );
-
-    print $navbar;
-
+        return $navbar;
+}
+function printAlertSuccess($msgs) {
+    $alert = file_get_contents("./templates/alert-success.html");
+    $alert = str_replace("%msgs%", "$msgs", $alert);
+    print $alert;
 }
 
+function printAlertDanger($msgs)
+{
+    $alert = file_get_contents("./templates/alert-danger.html");
+    $alert = str_replace("%msgs%", "$msgs", $alert);
+    print $alert;
+}
 function MergeViewWithData( $template, $data )
 {
     $returnvalue = "";

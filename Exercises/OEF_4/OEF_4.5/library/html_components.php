@@ -23,11 +23,10 @@ function PrintJumbo($title = "", $subtitle = "" ){
 }
 function PrintNavbar(){
     $navbar = file_get_contents("./templates/navbar.html");
-    $username = $_SESSION['user']['usr_voornaam'] . " " . $_SESSION['user']['usr_naam'];
+    $username = $_SESSION['user']['usr_voornaam'];
     $navbar = str_replace("@username@", $username, $navbar );
 
-    print $navbar;
-
+    return $navbar;
 }
 
 function MergeViewWithData( $template, $data )

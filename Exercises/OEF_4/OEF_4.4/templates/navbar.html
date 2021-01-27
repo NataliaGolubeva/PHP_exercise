@@ -14,24 +14,25 @@
             <li class="nav-item">
                 <a class="nav-link text-light" href="./login.php">Login</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-light" href="#">Action</a>
-                    <a class="dropdown-item text-light" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-light" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled text-light" href="#">Disabled</a>
-            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline  my-lg-0 mr-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        <ul class = "navbar-nav" style="margin-right: 20px">
+            <li class="nav-item dropdown" style="margin-right: 50px">
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @username@
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item text-dark" href="#">My Profile</a>
+                    <a class="dropdown-item text-dark" href="#">My Settings</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-dark" href="logout.php">Log out</a>
+                </div>
+            </li>
+
+        </ul>
+
     </div>
 </nav>

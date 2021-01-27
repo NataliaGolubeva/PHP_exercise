@@ -35,8 +35,7 @@ function SaveFormData()
        // ValidateUsrEmail();
        // ValidateUsrPassword();
         if ( $table == "user" )
-        {  RequiredVoornaam();
-            RequiredNaam();
+        {
             ValidateUsrPassword( $_POST['usr_password'] );
             ValidateUsrEmail( $_POST['usr_email'] );
             CheckUniqueUsrEmail( $_POST['usr_email'] );
@@ -48,10 +47,7 @@ function SaveFormData()
             header( "Location: " . $sending_form_uri ); exit();
         }
 
-        //hash password
-       /* if(key_exists('usr_password', $_POST)){
-            $_POST['usr_password'] = password_hash($_POST['usr_password'], PASSWORD_DEFAULT);
-        }*/
+
 
         //insert or update?
         if ( $_POST["$pkey"] > 0 ) $update = true;

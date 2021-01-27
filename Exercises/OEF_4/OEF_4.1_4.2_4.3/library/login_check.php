@@ -8,8 +8,9 @@ $user = LoginCheck();
 if ( $user )
 {
     $_SESSION['user'] = $user;
-    $_SESSION['msgs'][] = "Welkom, " . $_SESSION['user']['usr_voornaam'];
+    $_SESSION['msgs'][] = "Welkom";
     header("Location: ../overzicht_steden.php");
+   // var_dump($_SESSION['user']);
 }
 else
 {

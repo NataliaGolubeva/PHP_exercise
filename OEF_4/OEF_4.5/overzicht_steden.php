@@ -2,6 +2,7 @@
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 require_once "./library/autoload.php";
+$public_access = true;
 
 
 //Define and execute query
@@ -16,6 +17,13 @@ echo PrintNavbar();
     <div class="row">
 
 <?php
+if ( isset($msgs['success']) ) {
+    printAlertSuccess($msgs['success']);
+}
+
+if ( isset($msgs['danger']) ) {
+    printAlertDanger($msgs['danger']);
+}
  // get data
 $rows = getData("select * from images");
 

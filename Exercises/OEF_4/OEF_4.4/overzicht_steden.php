@@ -2,7 +2,6 @@
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 require_once "./library/autoload.php";
-$public_access = true;
 
 
 //Define and execute query
@@ -17,14 +16,19 @@ echo PrintNavbar();
     <div class="row">
 
 <?php
-if ( isset($msgs['success']) ) {
-    printAlertSuccess($msgs['success']);
-}
-
-if ( isset($msgs['danger']) ) {
-    printAlertDanger($msgs['danger']);
-}
  // get data
+foreach ( $msgs as $msg )
+{print '<div class="container">';
+    print' <div class="alert alert-success" role="alert">';
+
+    print '<div class="msgs">' . $msg . '</div>';
+
+    print'<br>';
+    print'</div>';
+    print'</div>';
+
+
+}
 $rows = getData("select * from images");
 
 // get template

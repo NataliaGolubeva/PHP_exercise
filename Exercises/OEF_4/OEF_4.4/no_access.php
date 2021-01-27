@@ -1,4 +1,3 @@
-
 <?php
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
@@ -13,9 +12,9 @@ PrintJumbo( $title = "Geen toegang" );
 <div class="container">
     <div class="row">
 
-        <?php
-        print "<div class='msgs'>U hebt helaas geen toegang! Probeer eventueel <a href=login.php>in te loggen</a></div>";
-        ?>
+<?php
+    print "<div class='msgs'>U hebt helaas geen toegang! Probeer eventueel <a href=login.php>in te loggen</a></div>";
+?>
 
     </div>
 </div>

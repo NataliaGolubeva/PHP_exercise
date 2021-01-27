@@ -1,6 +1,8 @@
 <?php
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
+
+$public_access = true;
 require_once "autoload.php";
 
 $user = LoginCheck();
@@ -17,13 +19,13 @@ else
     GoToNoAccess();
 }
 
-function LoginCheck(): bool
+function LoginCheck()
 {
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
+    if ( $_SERVER['REQUEST_METHOD'] == "POST" )
+    {
         //controle CSRF token
-        if (!key_exists("csrf", $_POST)) die("Missing CSRF");
-        if (!hash_equals($_POST['csrf'], $_SESSION['lastest_csrf'])) die("Problem with CSRF");
+        if ( ! key_exists("csrf", $_POST)) die("Missing CSRF");
+        if ( ! hash_equals( $_POST['csrf'], $_SESSION['lastest_csrf'] ) ) die("Problem with CSRF");
 
         $_SESSION['lastest_csrf'] = "";
 
@@ -33,7 +35,8 @@ function LoginCheck(): bool
 
         //validation
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
-//Validaties voor het loginformulier
+
+        //Validaties voor het loginformulier
         if ( true )
         {
             if ( ! key_exists("usr_email", $_POST ) OR strlen($_POST['usr_email']) < 5 )
@@ -45,6 +48,7 @@ function LoginCheck(): bool
                 $_SESSION['errors']['usr_password'] = "Het wachtwoord is niet correct ingevuld";
             }
         }
+
         //terugkeren naar afzender als er een fout is
         if ( key_exists("errors" , $_SESSION ) AND count($_SESSION['errors']) > 0 )
         {
@@ -63,11 +67,11 @@ function LoginCheck(): bool
         {
             foreach ( $data as $row )
             {
-                if ( password_verify( $ww, $row['usr_password'] ) ) return true;
+                if ( password_verify( $ww, $row['usr_password'] ) ) return $row;
             }
         }
 
-        return false;
+        return null;
     }
 }
 

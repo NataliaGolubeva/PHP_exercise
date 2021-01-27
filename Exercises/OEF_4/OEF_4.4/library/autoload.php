@@ -1,8 +1,10 @@
 <?php
 session_start();
+
 //print json_encode($_SERVER); exit;
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
-$app_root = "/" . $request_uri[1] . "/" . $request_uri[2] . "/" . $request_uri[3];
+$app_root = "/" . $request_uri[1] . "/" . $request_uri[2];
+
 
 require_once "connection_data.php";
 require_once "pdo.php";
@@ -13,7 +15,6 @@ require_once "validate.php";
 require_once "security.php";
 
 require_once "access_control.php";
-
 //initialize $errors array
 $errors = [];
 

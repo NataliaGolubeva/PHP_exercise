@@ -9,7 +9,7 @@ if ( $user )
 {
     $_SESSION['user'] = $user;
     $_SESSION['msgs'][] = "Welkom, " . $_SESSION['user']['usr_voornaam'];
-    header("Location: ../steden.php");
+    header("Location: ../overzicht_steden.php");
 }
 else
 {
@@ -17,13 +17,13 @@ else
     GoToNoAccess();
 }
 
-
-function LoginCheck()
+function LoginCheck(): bool
 {
-    if ( $_SERVER['REQUEST_METHOD'] == "POST" )
-    {//controle CSRF token
-        if ( ! key_exists("csrf", $_POST)) die("Missing CSRF");
-        if ( ! hash_equals( $_POST['csrf'], $_SESSION['lastest_csrf'] ) ) die("Problem with CSRF");
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+        //controle CSRF token
+        if (!key_exists("csrf", $_POST)) die("Missing CSRF");
+        if (!hash_equals($_POST['csrf'], $_SESSION['lastest_csrf'])) die("Problem with CSRF");
 
         $_SESSION['lastest_csrf'] = "";
 
@@ -33,8 +33,7 @@ function LoginCheck()
 
         //validation
         $sending_form_uri = $_SERVER['HTTP_REFERER'];
-
-        //Validaties voor het loginformulier
+//Validaties voor het loginformulier
         if ( true )
         {
             if ( ! key_exists("usr_email", $_POST ) OR strlen($_POST['usr_email']) < 5 )
@@ -47,10 +46,7 @@ function LoginCheck()
             }
         }
         //terugkeren naar afzender als er een fout is
-
-        if ( isset( $_SESSION['errors'] ) AND count($_SESSION['errors']) > 0 )
-
-        //if ( key_exists("errors" , $_SESSION ) AND count($_SESSION['errors']) > 0 )
+        if ( key_exists("errors" , $_SESSION ) AND count($_SESSION['errors']) > 0 )
         {
             $_SESSION['OLD_POST'] = $_POST;
             header( "Location: " . $sending_form_uri ); exit();
@@ -67,16 +63,11 @@ function LoginCheck()
         {
             foreach ( $data as $row )
             {
-                if ( password_verify( $ww, $row['usr_password'] ) )
-                {
-                    var_dump($data);
-
-                    return true;
-                }
+                if ( password_verify( $ww, $row['usr_password'] ) ) return true;
             }
-
         }
 
         return false;
     }
 }
+

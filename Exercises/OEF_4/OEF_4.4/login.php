@@ -1,10 +1,10 @@
-
 <?php
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
 
+$public_access =  true;
 require_once "library/autoload.php";
-$public_access = true;
+
 
 //Define and execute query
 echo PrintHead();
@@ -18,12 +18,15 @@ echo PrintNavbar();
 
         <?php
 
-        //insert data
+        if ( isset($_GET['logout']) AND $_GET['logout'] == "true" )
+        {
+            print '<div class="msgs">U bent uitgelogd.</div>';
+        }
 
 
         $data = [ 0 => [ "usr_email" => "", "usr_password" => "" ]];
         //add extra elements
-        $extra_elements['csrf_token'] = GenerateCSRF( "register.php"  );
+        $extra_elements['csrf_token'] = GenerateCSRF( "login.php"  );
 
         $output = file_get_contents("./templates/login.html");
 
@@ -33,11 +36,6 @@ echo PrintNavbar();
 
 
         print $output;
-
-
-        //get template
-
-
 
 
         ?>
