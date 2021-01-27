@@ -20,9 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d339c69c-6941-4966-8c18-3284a94fb492" name="Default Changelist" comment="Fixed forms">
-      <change afterPath="$PROJECT_DIR$/OEF_4/OEF_4.1_4.2_4.3/templates/alert_danger.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OEF_4/OEF_4.1_4.2_4.3/templates/alert_success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OEF_4/OEF_4.5/logout.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/my_project/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_2.1/steden.php" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_2.1/steden.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_2.2/OEF_2.2.php" beforeDir="false" />
@@ -40,12 +37,6 @@
       <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/library/login_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/library/login_check.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/library/save.php" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/library/save.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/overzicht_steden.php" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/overzicht_steden.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1_4.2_4.3/templates/head_new.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1b/library/connection_data.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1b/library/html_components.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1b/library/security.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1b/library/validate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Database_OEF/OEF_4.1b/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/OEF_4/OEF_4.1_4.2_4.3/logout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/Training_php/form.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/my_project_demo/lib/html_components.php" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/my_project_demo/lib/html_components.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Exercises/my_project_demo/lib/save.php" beforeDir="false" afterPath="$PROJECT_DIR$/Exercises/my_project_demo/lib/save.php" afterDir="false" />
@@ -148,7 +139,7 @@
       <workItem from="1611056180511" duration="93000" />
       <workItem from="1611056317177" duration="38317000" />
       <workItem from="1611393521781" duration="26669000" />
-      <workItem from="1611487525689" duration="55339000" />
+      <workItem from="1611487525689" duration="55691000" />
     </task>
     <task id="LOCAL-00001" summary="Student to table">
       <created>1606421437707</created>
@@ -325,7 +316,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611614508572</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Fixed forms">
+      <created>1611752275410</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1611752275411</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Fixed forms">
+      <created>1611752463439</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1611752463440</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,11 +381,11 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="652" y="209" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1611689523946" />
-    <state x="0" y="23" width="1047" height="877" key="CommitChangelistDialog2" timestamp="1611614508150">
+    <state x="0" y="23" width="1047" height="877" key="CommitChangelistDialog2" timestamp="1611752596167">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="0" y="23" width="1047" height="877" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1611061296486" />
-    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1611614508150" />
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1611752596167" />
     <state x="215" y="324" key="EditFileWatcherDialog" timestamp="1611345181489">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
