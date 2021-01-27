@@ -1,7 +1,14 @@
 <?php
 
 function PrintHead (){
-    $head = file_get_contents("./templates/head_new.html");
+   if (file_exists("./templates/head2.html")){
+       $head = file_get_contents("./templates/head2.html");
+   }
+   else {
+       $head = file_get_contents("../templates/head2.html");
+
+   }
+
     return $head;
 }
 
@@ -49,7 +56,7 @@ function MergeViewWithErrors( $template, $errors )
 {
     foreach ( $errors as $key => $error )
     {
-        $template = str_replace( "@$key@", "<p style='color:#ff0000'>$error</p>", $template );
+        $template = str_replace( "@$key@", "<p style='color:red'>$error</p>", $template );
     }
     return $template;
 }

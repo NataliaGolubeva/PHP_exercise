@@ -134,3 +134,16 @@ function ValidateUsrEmail()
         $_SESSION['errors'][ "usr_email_error" ] = $msg;
     }
 }
+function CheckUniqueUsrEmail( $email )
+{
+    $sql = "SELECT * FROM user WHERE usr_email='" . $email . "'";
+    $rows = GetData($sql);
+
+    if (count($rows) > 0)
+    {
+        $_SESSION['errors']['usr_email_error'] = "There is already a user with such email address";
+        return false;
+    }
+
+    return true;
+}
