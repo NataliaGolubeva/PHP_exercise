@@ -9,7 +9,7 @@ if ( $user )
 {
     $_SESSION['user'] = $user;
     $_SESSION['msgs'][] = "Welkom, " . $_SESSION['user']['usr_voornaam'];
-    header("Location: ../steden.php");
+    header("Location: ../overzicht_steden.php");
 }
 else
 {
@@ -39,7 +39,7 @@ function LoginCheck()
         {
             if ( ! key_exists("usr_email", $_POST ) OR strlen($_POST['usr_email']) < 5 )
             {
-                $_SESSION['errors']['usr_password'] = "Het wachtwoord is niet correct ingevuld";
+                $_SESSION['errors']['usr_pemail'] = "Email is niet correct ingevuld";
             }
             if ( ! key_exists("usr_password", $_POST ) OR strlen($_POST['usr_password']) < 8 )
             {

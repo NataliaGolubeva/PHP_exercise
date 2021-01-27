@@ -1,9 +1,10 @@
 <?php
-
+require_once "./library/autoload.php";
 error_reporting( E_ALL );
 ini_set( 'display_errors', 1 );
-require_once "./library/autoload.php";
+
 require_once "./library/search.php";
+
 
 
 // PRINT HEAD
@@ -19,6 +20,7 @@ if ( isset($msgs['success']) ) {
 if ( isset($msgs['danger']) ) {
     printAlertDanger($msgs['danger']);
 }
+
 
 $extra_elements['csrf_token'] = GenerateCSRF( "index.php"  );
 /// Sign In
@@ -70,7 +72,7 @@ $login = MergeViewWithExtraElements( $login, $extra_elements );
 
 print $login;
 
-
+echo PrintHeader();
 echo PrintSection();
 
 ?>;

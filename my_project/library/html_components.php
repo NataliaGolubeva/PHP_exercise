@@ -10,6 +10,8 @@ function PrintNavigation(){
 }
 function PrintNavigation2(){
     $navigation2 = file_get_contents("./templates/navigation2.html");
+    $username = $_SESSION['user']['usr_name'];
+    $navigation2 = str_replace("@usr_name@", $username, $navigation2 );
     return $navigation2;
 }
 
@@ -23,12 +25,6 @@ function PrintSection(){
     $section = file_get_contents("./templates/section.html");
         return $section;
 }
-function PrintSectionSearch(){
-    $section = file_get_contents("./templates/section_search.html");
-    return $section;
-}
-
-
 
 function printAlertSuccess($msgs) {
     $alert = file_get_contents("./templates/alert-success.html");

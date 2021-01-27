@@ -1,5 +1,6 @@
+
 <div class="form-popup" id="register">
-    <form  class="form-container" action="" method="post">
+    <form  class="form-container" action="library/save.php" method="post">
         <input type="hidden" id="table" name="table" value="user">
         <input type="hidden" id="pkey" name="pkey" value="usr_id">
         <input type="hidden" id="afterinsert" name="afterinsert" value="index.php">
@@ -86,6 +87,7 @@
         <div class="buttons">
             <button type="submit" class="btn">Register</button>
         </div>
+
         <div class="cancel" onclick="closeFormReg()">
             <button>
                 <svg class="icon icon-cross">

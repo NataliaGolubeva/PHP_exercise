@@ -13,6 +13,7 @@ function SaveFormData()
         if ( ! key_exists("csrf", $_POST)) die("Missing CSRF");
         if ( ! hash_equals( $_POST['csrf'], $_SESSION['lastest_csrf'] ) ) die("Problem with CSRF");
 
+
         $_SESSION['lastest_csrf'] = "";
         //sanitization
         $_POST = StripSpaces($_POST);
@@ -42,16 +43,11 @@ function SaveFormData()
 
         //terugkeren naar afzender als er een fout is
 
-        if ( count($_SESSION['errors']) > 0 )
+        if ( isset($_SESSION['errors']) and count($_SESSION['errors']) > 0 )
         {
             $_SESSION['OLD_POST'] = $_POST;
             header( "Location: " . $sending_form_uri ); exit();
         }
-
-        //hash password
-        /*if(key_exists('usr_password', $_POST)){
-            $_POST['usr_password'] = password_hash($_POST['usr_password'], PASSWORD_DEFAULT);
-        }*/
 
         $sql = "INSERT INTO $table SET ";
         //make key-value string part of SQL statement
@@ -87,9 +83,14 @@ function SaveFormData()
         //run SQL
         $result = ExecuteSQL( $sql );
 
-        if (isset( $result ))
-        {
-            print '<div class="message"> Thank you for registration</div>';
+        // if update is succesfull for update user table
+        if ($result && $table == 'user') {
+            $_SESSION['msgs']['success'] = "Thank you for your registration.";
+
+        }
+        if (!$result) {
+            $_SESSION['msgs']['danger'] = "Don't have an account yet? Please register.";
+            header( "Location: " . $sending_form_uri );
         }
 
         //output if not redirected

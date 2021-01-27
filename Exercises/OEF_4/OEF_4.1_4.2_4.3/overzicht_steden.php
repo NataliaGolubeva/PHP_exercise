@@ -17,6 +17,10 @@ echo PrintNavbar();
 
 <?php
  // get data
+foreach ( $msgs as $msg )
+{
+    print '<div class="msgs">' . $msg . '</div>';
+}
 $rows = getData("select * from images");
 
 // get template
